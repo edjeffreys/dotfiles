@@ -63,7 +63,10 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-# workspace
+# Change gap spacing
+bindsym $mod+t gaps inner all set 25
+bindsym $mod+Shift+t gaps inner all set0 
+
 set $ws1 "1: Editor "
 set $ws2 "2: FireFox "
 set $ws10 "10: Music"
