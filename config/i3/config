@@ -165,7 +165,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 #}
 
 # key bindings
-bindsym $mod+d exec "rofi -modi window,run,drun,ssh -show drun"
+bindsym $mod+d exec "rofi -modi window,run,drun,ssh -show drun -theme flat-orange"
 
 # Audio controls
 bindsym XF86AudioMute exec amixer set Master toggle
