@@ -190,10 +190,14 @@ bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer
 bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 
 # Compton
-exec --no-startup-id compton --config ~/.config/compton.conf -b
+exec_always --no-startup-id compton --config ~/.config/compton.conf -b
 # Set wallpaper
 exec_always --no-startup-id  feh --bg-scale /home/edj/MEGA/Home/Wallpapers/Mountain_mirror.jpg
 # Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 # Megasync
-exec_always --no-startup-id megasync
+exec --no-startup-id megasync
+# i3-gnome
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+exec_always --no-startup-id gnome-power-manager
+
