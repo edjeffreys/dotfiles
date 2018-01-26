@@ -173,8 +173,8 @@ bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
 
 # Screen brightness controls with notification
-bindsym XF86MonBrightnessUp exec "light -A 5" # increase screen brightness
-bindsym XF86MonBrightnessDown exec "light -U 5" # decrease screen brightness
+bindsym XF86MonBrightnessUp exec "light -A 5"
+bindsym XF86MonBrightnessDown exec "light -U 5"
 
 # Touchpad controls
 #bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
