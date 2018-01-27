@@ -14,6 +14,9 @@
 * MEGASync - zypper in megasync
 * i3-gaps - zypper in i3-gaps
 * i3-gnome - [GitHub](https://github.com/51v4n/i3-gnome) /51v4n/i3-gnome
+* lxappearance - zypper in lxappearance
+* arc - zypper in arc
+* papirus - [GitHub]{https://github.com/PapirusDevelopmentTeam/papirus-icon-theme}
 * texlive - [TexLive](https://tug.org/texlive/quickinstall.html)
 * Chromium (until 1Password x for FF) - zypper in chromium
 * Spotify - zypper in spotify-easyrpm
