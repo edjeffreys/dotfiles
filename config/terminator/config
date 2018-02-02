@@ -1,5 +1,5 @@
 [global_config]
-  borderless = True
+  borderless = False
   title_font = Source Code Pro 9
   title_use_system_font = False
 [keybindings]

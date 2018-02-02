@@ -48,4 +48,5 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mhartington/oceanic-next'
+Plug 'suan/vim-instant-markdown'
 call plug#end()
