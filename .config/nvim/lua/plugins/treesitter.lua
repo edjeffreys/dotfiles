@@ -11,4 +11,8 @@ return {
       })
     end,
   },
+  {
+    "tpope/vim-commentary",
+    lazy = false,
+  },
 }
