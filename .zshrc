@@ -1,3 +1,6 @@
+# Mac seems to lose this for some reason...
+export PATH=/opt/homebrew/bin:$PATH
+
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
