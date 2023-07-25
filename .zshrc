@@ -1,10 +1,9 @@
 # Mac seems to lose this for some reason...
 export PATH=/opt/homebrew/bin:$PATH
-
 export ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
-
-plugins=(zsh-autosuggestions zsh-syntax-highlighting)
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export EDITOR=nvim
+export GOOGLE_APPLICATION_CREDENTIALS=/Users/ed.jeffreys/.config/gcloud/application_default_credentials.json
 
 alias top=htop
 alias vim=nvim
@@ -15,10 +14,6 @@ alias assumeclusterowner="~/.scripts/assumeclusterowner"
 alias gitdave='git rebase --onto stable origin/master'
 alias pip=pip3
 alias cat=bat
-
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export EDITOR=nvim
-export GOOGLE_APPLICATION_CREDENTIALS=/Users/ed.jeffreys/.config/gcloud/application_default_credentials.json
 
 # Starling config
 if [ -e /Users/ed.jeffreys/.starling/etc/profile ]; then
@@ -33,6 +28,9 @@ gittidy() {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source $ZSH/oh-my-zsh.sh
+plugins=(zsh-autosuggestions zsh-syntax-highlighting)
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
