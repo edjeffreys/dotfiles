@@ -3,3 +3,5 @@
 -- Add any additional options here
 
 vim.g.material_style = "darker"
+vim.opt.path:append("**")
+vim.opt.wildmenu = true
