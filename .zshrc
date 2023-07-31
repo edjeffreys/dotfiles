@@ -18,8 +18,6 @@ alias cat=bat
 # Starling config
 if [ -e /Users/ed.jeffreys/.starling/etc/profile ]; then
   . /Users/ed.jeffreys/.starling/etc/profile
-else
-  echo "Could not find '/Users/ed.jeffreys/.starling/etc/profile'"
 fi
 
 gittidy() {
