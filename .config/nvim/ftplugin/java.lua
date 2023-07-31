@@ -1,84 +1,78 @@
--- local jdtls = require("jdtls")
---
--- local home = os.getenv("HOME")
--- local root_dir = require("jdtls.setup").find_root({ ".git", "gradlew", "mvnw" })
--- local workspace_dir = root_dir .. "/../.jdtls/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
---
--- local config = {
---   root_dir = root_dir,
---   settings = {
---     java = {
---       eclipse = {
---         downloadSources = true,
---       },
---       configuration = {
---         updateBuildConfiguration = "interactive",
---       },
---       gradle = {
---         downloadSources = true,
---       },
---       implementationCodeLens = {
---         enabled = true,
---       },
---       referencesCodeLens = {
---         enabled = true,
---       },
---       references = {
---         includeDecompiledSources = true,
---       },
---       signatureHelp = {
---         enabled = true,
---       },
---       completion = {},
---       flags = {
---         allow_incremental_sync = true,
---       },
---       format = {
---         enabled = true,
---         settings = {
---           url = "/Users/ed.jeffreys/.config/nvim/resources/java-google-style.xml",
---         },
---       },
---     },
---   },
---
---   -- on_attach = function() end,
---   --  cmd = {
---   --    "/opt/homebrew/Cellar/jdtls/1.24.0/bin/jdtls",
---   --    "-configuration",
---   --    ".settings/jdtls/config",
---   --    "-data",
---   --    workspace_dir,
---   --  },
---   cmd = {
---     --"java",
---     --"/opt/homebrew/opt/openjdk@17/bin/java",
---     "/Users/ed.jeffreys/Library/Java/JavaVirtualMachines/corretto-17.0.7/Contents/Home/bin/java",
---     --"/opt/homebrew/Cellar/openjdk/20.0.1/bin/java",
---     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
---     "-Dosgi.bundles.defaultStartLevel=4",
---     "-Declipse.product=org.eclipse.jdt.ls.core.product",
---     "-Dlog.protocol=true",
---     --"-Dlog.level=ALL",
---     "-noverify",
---     "-Xms1g",
---     "-Xmx4g",
---     "-XX:+UseParallelGC",
---     "-XX:GCTimeRatio=4",
---     "-XX:AdaptiveSizePolicyWeight=90",
---     "-Dsun.zip.disableMemoryMapping=true",
---     "--add-modules=ALL-SYSTEM",
---     "--add-opens",
---     "java.base/java.util=ALL-UNNAMED",
---     "--add-opens",
---     "java.base/java.lang=ALL-UNNAMED",
---     "-jar",
---     vim.fn.glob("/opt/homebrew/Cellar/jdtls/1.25.0/libexec/plugins/org.eclipse.equinox.launcher_*.jar"),
---     "-configuration",
---     "/opt/homebrew/Cellar/jdtls/1.25.0/libexec/config_mac",
---     "-data",
---     workspace_dir,
---   },
--- }
---
--- jdtls.start_or_attach(config)
+local jdtls = require("jdtls")
+
+local root_dir = require("jdtls.setup").find_root({ ".git", "gradlew", "mvnw" })
+local workspace_dir = root_dir .. "/../.jdtls/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+
+local config = {
+  root_dir = root_dir,
+  settings = {
+    java = {
+      eclipse = {
+        downloadSources = true,
+      },
+      configuration = {
+        updateBuildConfiguration = "interactive",
+      },
+      gradle = {
+        downloadSources = true,
+      },
+      implementationCodeLens = {
+        enabled = true,
+      },
+      referencesCodeLens = {
+        enabled = true,
+      },
+      references = {
+        includeDecompiledSources = true,
+      },
+      signatureHelp = {
+        enabled = true,
+      },
+      completion = {},
+      flags = {
+        allow_incremental_sync = true,
+      },
+      format = {
+        enabled = true,
+        settings = {
+          url = vim.fn.stdpath("config") .. "/resources/java-google-style.xml",
+        },
+      },
+    },
+  },
+
+  cmd = {
+    "java",
+    "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+    "-Dosgi.bundles.defaultStartLevel=4",
+    "-Declipse.product=org.eclipse.jdt.ls.core.product",
+    "-Dlog.protocol=true",
+    --"-Dlog.level=ALL",
+    "-noverify",
+    "-Xms8g",
+    "-Xmx8g",
+    "-XX:+UseParallelGC",
+    "-XX:GCTimeRatio=4",
+    "-XX:AdaptiveSizePolicyWeight=90",
+    "-Dsun.zip.disableMemoryMapping=true",
+    "--add-modules=ALL-SYSTEM",
+    "--add-opens",
+    "java.base/java.util=ALL-UNNAMED",
+    "--add-opens",
+    "java.base/java.lang=ALL-UNNAMED",
+    "-jar",
+    vim.fn.glob(
+      vim.fn.stdpath("data")
+        .. "/lazy/eclipse.jdt.ls/"
+        .. "org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_*.jar"
+    ),
+    "-configuration",
+    vim.fn.stdpath("data")
+      .. "/lazy/eclipse.jdt.ls/"
+      .. "org.eclipse.jdt.ls.product/target/repository/config_mac_silicon",
+    "-data",
+    workspace_dir,
+  },
+}
+
+jdtls.start_or_attach(config)

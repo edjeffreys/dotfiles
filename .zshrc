@@ -1,5 +1,5 @@
 # Mac seems to lose this for some reason...
-export PATH=/opt/homebrew/bin:$PATH
+export PATH=~/.scripts:/opt/homebrew/bin:$PATH
 export ZSH="$HOME/.oh-my-zsh"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export EDITOR=nvim

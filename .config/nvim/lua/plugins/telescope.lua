@@ -15,7 +15,13 @@ return {
       {
         "<leader>fw",
         function()
-          require("telescope.builtin").live_grep()
+          vim.ui.input({
+            prompt = "Glob pattern",
+          }, function(input)
+            require("telescope.builtin").live_grep({
+              glob_pattern = input,
+            })
+          end)
         end,
       },
       {
@@ -32,6 +38,9 @@ return {
         layout_config = { prompt_position = "top" },
         sorting_strategy = "ascending",
         winblend = 0,
+        path_display = {
+          truncate = 3,
+        },
       },
     },
   },
