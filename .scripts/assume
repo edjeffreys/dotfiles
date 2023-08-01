@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+. ~/.starling/etc/profile
+
+read -p 'MFA code: ' mfa
+
+assumerole $1 $mfa
+
