@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+databases=$(cat ~/.ssh/config | grep LocalForward | grep db | tr '-' ' ' | awk '{print $3}')
+
+selected=$(echo "$databases" | fzf)
+
+username=${selected}blue
+password=$(op item get j7lex2ai5fdtnjkwx2e4fjnf7i --field ${username})
+
+connection=$(cat ~/.ssh/config | grep ${selected} | grep LocalForward | awk '{print $2}')
+
+pgcli postgresql://${username}:${password}@localhost:${connection}/${selected}

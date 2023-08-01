@@ -1,0 +1,3 @@
+filename=~/Documents/techapprovals/$1-$2.md
+cp ~/Documents/techapprovals/template.md $filename
+nvim $filename
