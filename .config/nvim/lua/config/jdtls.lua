@@ -1,5 +1,9 @@
+local jdtls = require("jdtls")
 local root_dir = require("jdtls.setup").find_root({ ".git", "gradlew", "mvnw" })
 local workspace_dir = root_dir .. "/../.jdtls/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+
+local extendedClientCapabilities = jdtls.extendedClientCapabilities
+extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
 return {
   root_dir = root_dir,
@@ -34,6 +38,7 @@ return {
         enabled = true,
         settings = {
           url = vim.fn.stdpath("config") .. "/resources/java-google-style.xml",
+          profile = "GoogleStyle",
         },
       },
     },
@@ -70,5 +75,9 @@ return {
       .. "org.eclipse.jdt.ls.product/target/repository/config_mac_silicon",
     "-data",
     workspace_dir,
+  },
+
+  init_options = {
+    extendedClientCapabilities = extendedClientCapabilities,
   },
 }

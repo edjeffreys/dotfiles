@@ -2,6 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 local Util = require("lazyvim.util")
+local jdtls = require("jdtls")
 
 local function map(mode, lhs, rhs, opts)
   local keys = require("lazy.core.handler").handlers.keys
@@ -22,3 +23,8 @@ map("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Open diffview" })
 map("n", "<leader>ee", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle NvimTree" })
 map("n", "<leader>ef", "<cmd>NvimTreeFindFile<cr>", { desc = "Find file in NvimTree" })
 map("n", "<leader>d", '"_d', { desc = "Delete without overwriting register" })
+map("n", "<leader>ct", jdtls.test_class, { desc = "Go to test class" })
+map("n", "<leader>co", jdtls.organize_imports, { desc = "Organize imports" })
+map("n", "<leader>cev", jdtls.extract_variable, { desc = "Extract variable" })
+map("n", "<leader>cem", jdtls.extract_method, { desc = "Extract method" })
+map("n", "<leader>cec", jdtls.extract_constant, { desc = "Extract constant" })
