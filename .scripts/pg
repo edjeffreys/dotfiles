@@ -8,4 +8,10 @@ password=$(op item get j7lex2ai5fdtnjkwx2e4fjnf7i --field ${username})
 
 connection=$(cat ~/.ssh/config | grep ${selected} | grep LocalForward | awk '{print $2}')
 
+existing=$(screen -ls | grep ssh-demo | tr '.' ' ' | awk '{print $2}')
+if [[ -z $existing ]]; then
+	screen -dmS ssh-demo ssh demo-banking
+	sleep 1
+fi
+
 pgcli postgresql://${username}:${password}@localhost:${connection}/${selected}

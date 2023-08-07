@@ -18,6 +18,8 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
+map("n", "<C-u>", "<C-u>zz")
+map("n", "<C-d>", "<C-d>zz")
 map("n", "<leader>gs", "<cmd>Git<cr>", { desc = "Open git status" })
 map("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Open diffview" })
 map("n", "<leader>ee", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle NvimTree" })
@@ -28,3 +30,4 @@ map("n", "<leader>co", jdtls.organize_imports, { desc = "Organize imports" })
 map("n", "<leader>cev", jdtls.extract_variable, { desc = "Extract variable" })
 map("n", "<leader>cem", jdtls.extract_method, { desc = "Extract method" })
 map("n", "<leader>cec", jdtls.extract_constant, { desc = "Extract constant" })
+map("n", "gtd", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", { desc = "Go to definition in new split" })
