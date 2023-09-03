@@ -5,3 +5,6 @@
 vim.g.material_style = "darker"
 vim.opt.path:append("**")
 vim.opt.wildmenu = true
+
+vim.opt.pumblend = 0
+vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:Cursor/Cursor"

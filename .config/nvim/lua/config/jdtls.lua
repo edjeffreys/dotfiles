@@ -70,9 +70,7 @@ return {
         .. "org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_*.jar"
     ),
     "-configuration",
-    vim.fn.stdpath("data")
-      .. "/lazy/eclipse.jdt.ls/"
-      .. "org.eclipse.jdt.ls.product/target/repository/config_mac_silicon",
+    vim.fn.stdpath("data") .. "/lazy/eclipse.jdt.ls/" .. "org.eclipse.jdt.ls.product/target/repository/config_mac_arm",
     "-data",
     workspace_dir,
   },

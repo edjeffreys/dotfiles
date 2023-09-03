@@ -17,6 +17,8 @@ return {
     config = function()
       require("material").setup({
         plugins = {
+          "dashboard",
+          "gitsigns",
           "indent-blankline",
           "nvim-cmp",
           "nvim-tree",

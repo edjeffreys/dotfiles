@@ -1,7 +1,7 @@
 return {
 
   {
-    "edjeffreys/eclipse.jdt.ls",
+    "eclipse-jdtls/eclipse.jdt.ls",
     build = vim.fn.stdpath("data") .. "/lazy/eclipse.jdt.ls/" .. "mvnw clean verify -DskipTests",
   },
 
