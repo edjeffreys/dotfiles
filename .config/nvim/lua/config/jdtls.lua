@@ -1,6 +1,7 @@
 local jdtls = require("jdtls")
 local root_dir = require("jdtls.setup").find_root({ ".git", "gradlew", "mvnw" })
 local workspace_dir = root_dir .. "/../.jdtls/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+local jdtls_dir = vim.fn.globpath("/opt/homebrew/Cellar/jdtls/", "*/libexec/")
 
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
@@ -23,9 +24,6 @@ return {
       },
       referencesCodeLens = {
         enabled = true,
-      },
-      references = {
-        includeDecompiledSources = true,
       },
       signatureHelp = {
         enabled = true,
@@ -50,27 +48,20 @@ return {
     "-Dosgi.bundles.defaultStartLevel=4",
     "-Declipse.product=org.eclipse.jdt.ls.core.product",
     "-Dlog.protocol=true",
-    --"-Dlog.level=ALL",
-    "-noverify",
     "-Xms8g",
     "-Xmx8g",
     "-XX:+UseParallelGC",
     "-XX:GCTimeRatio=4",
     "-XX:AdaptiveSizePolicyWeight=90",
-    "-Dsun.zip.disableMemoryMapping=true",
     "--add-modules=ALL-SYSTEM",
     "--add-opens",
     "java.base/java.util=ALL-UNNAMED",
     "--add-opens",
     "java.base/java.lang=ALL-UNNAMED",
     "-jar",
-    vim.fn.glob(
-      vim.fn.stdpath("data")
-        .. "/lazy/eclipse.jdt.ls/"
-        .. "org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_*.jar"
-    ),
+    vim.fn.glob(jdtls_dir .. "plugins/org.eclipse.equinox.launcher_*.jar"),
     "-configuration",
-    vim.fn.stdpath("data") .. "/lazy/eclipse.jdt.ls/" .. "org.eclipse.jdt.ls.product/target/repository/config_mac_arm",
+    jdtls_dir .. "config_mac_arm",
     "-data",
     workspace_dir,
   },

@@ -24,11 +24,11 @@ gittidy() {
   git branch | grep -v \* | xargs git branch -D
 }
 
-assumerole() {
+ar() {
   mfa=
   vared -p "MFA code: " -c mfa
-  eval $(toolbox_python assumerole $1 $mfa)
-  eval $( echo export ASSUME_ROLE=$1 )
+  eval $(assumerole $1 $mfa)
+  eval $(echo export ASSUME_ROLE=$1)
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
