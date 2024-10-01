@@ -15,4 +15,8 @@ return {
     "tpope/vim-commentary",
     lazy = false,
   },
+  {
+    "L3MON4D3/LuaSnip",
+    enabled = false,
+  },
 }

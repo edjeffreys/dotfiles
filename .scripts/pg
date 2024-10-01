@@ -4,14 +4,16 @@ databases=$(cat ~/.ssh/config | grep LocalForward | grep db | tr '-' ' ' | awk '
 selected=$(echo "$databases" | fzf)
 
 username=${selected}blue
-password=$(op item get 34ffnw6qdiwrekgcxmkmykrwbu --field ${username})
+password=$(op item get 34ffnw6qdiwrekgcxmkmykrwbu --field ${username} --reveal)
 
-connection=$(cat ~/.ssh/config | grep ${selected} | grep LocalForward | awk '{print $2}')
+connection=$(cat ~/.ssh/config | grep ${selected} -m1 | grep LocalForward | awk '{print $2}')
 
 existing=$(screen -ls | grep ssh-demo | tr '.' ' ' | awk '{print $2}')
 if [[ -z $existing ]]; then
-	screen -dmS ssh-demo ssh demo-banking
-	sleep 1
+  screen -dmS ssh-demo ssh demo-banking
+  sleep 1
 fi
+
+echo postgresql://${username}:${password}@localhost:${connection}/${selected}
 
 pgcli postgresql://${username}:${password}@localhost:${connection}/${selected}

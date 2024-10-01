@@ -5,6 +5,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export EDITOR=nvim
 export GOOGLE_APPLICATION_CREDENTIALS=/Users/ed.jeffreys/.config/gcloud/application_default_credentials.json
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
+export JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home
 
 alias top=htop
 alias vim=nvim
@@ -34,8 +35,26 @@ ar() {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source $ZSH/oh-my-zsh.sh
-plugins=(zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(zsh-autosuggestions zsh-syntax-highlighting vi-mode)
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/Users/ed.jeffreys/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/ed.jeffreys/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/ed.jeffreys/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/ed.jeffreys/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# <<< conda initialize <<<
+
+eval 
+TWILIO_AC_ZSH_SETUP_PATH=/Users/ed.jeffreys/.twilio-cli/autocomplete/zsh_setup && test -f $TWILIO_AC_ZSH_SETUP_PATH && source $TWILIO_AC_ZSH_SETUP_PATH; # twilio autocomplete setup

@@ -15,6 +15,12 @@ return {
       {
         "<leader>fw",
         function()
+          require("telescope.builtin").live_grep({})
+        end,
+      },
+      {
+        "<leader>fW",
+        function()
           vim.ui.input({
             prompt = "Glob pattern",
           }, function(input)
@@ -42,17 +48,6 @@ return {
           truncate = 3,
         },
       },
-    },
-  },
-
-  {
-    "telescope.nvim",
-    dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-      config = function()
-        require("telescope").load_extension("fzf")
-      end,
     },
   },
 }

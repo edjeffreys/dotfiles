@@ -1,15 +1,15 @@
-local jdtls = require("jdtls")
-local root_dir = require("jdtls.setup").find_root({ ".git", "gradlew", "mvnw" })
+local root_dir = require("jdtls.setup").find_root({ "gradlew", ".git", "mvnw" })
 local workspace_dir = root_dir .. "/../.jdtls/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local jdtls_dir = vim.fn.globpath("/opt/homebrew/Cellar/jdtls/", "*/libexec/")
-
-local extendedClientCapabilities = jdtls.extendedClientCapabilities
-extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
+-- local jdtls_dir = "/Users/ed.jeffreys/jdtls/1.29.0/"
 
 return {
   root_dir = root_dir,
   settings = {
     java = {
+      autobuild = {
+        enabled = false,
+      },
       eclipse = {
         downloadSources = true,
       },
@@ -35,7 +35,7 @@ return {
       format = {
         enabled = true,
         settings = {
-          url = vim.fn.stdpath("config") .. "/resources/java-google-style.xml",
+          url = vim.fn.stdpath("config") .. "/resources/java-google-style-v2.xml",
           profile = "GoogleStyle",
         },
       },
@@ -48,6 +48,7 @@ return {
     "-Dosgi.bundles.defaultStartLevel=4",
     "-Declipse.product=org.eclipse.jdt.ls.core.product",
     "-Dlog.protocol=true",
+    "-Dlog.level=ALL",
     "-Xms8g",
     "-Xmx8g",
     "-XX:+UseParallelGC",
@@ -64,9 +65,5 @@ return {
     jdtls_dir .. "config_mac_arm",
     "-data",
     workspace_dir,
-  },
-
-  init_options = {
-    extendedClientCapabilities = extendedClientCapabilities,
   },
 }

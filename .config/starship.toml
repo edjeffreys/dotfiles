@@ -1,3 +1,8 @@
+[git_status]
+disabled = true
+
+# === Looks ===
+
 [time]
 disabled = false
 format = '[$time]($style) '
