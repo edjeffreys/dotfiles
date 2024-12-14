@@ -50,5 +50,5 @@ eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh.json)"
 # unset __conda_setup
 # <<< conda initialize <<<
 
-eval 
-TWILIO_AC_ZSH_SETUP_PATH=/Users/ed.jeffreys/.twilio-cli/autocomplete/zsh_setup && test -f $TWILIO_AC_ZSH_SETUP_PATH && source $TWILIO_AC_ZSH_SETUP_PATH; # twilio autocomplete setup
+eval TWILIO_AC_ZSH_SETUP_PATH=/Users/ed.jeffreys/.twilio-cli/autocomplete/zsh_setup && test -f $TWILIO_AC_ZSH_SETUP_PATH && source $TWILIO_AC_ZSH_SETUP_PATH; # twilio autocomplete setup
+. "$HOME/.local/bin/env"

@@ -18,6 +18,10 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
+-- map("n", "<c-h>", ":wincmd h<CR>")
+-- map("n", "<c-j>", ":wincmd j<CR>")
+-- map("n", "<c-k>", ":wincmd k<CR>")
+-- map("n", "<c-l>", ":wincmd l<CR>")
 map("n", "<C-u>", "<C-u>zz")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "-", "<cmd>Oil<cr>", { desc = "Open parent directory" })
