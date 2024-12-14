@@ -6,7 +6,7 @@ export EDITOR=nvim
 export GOOGLE_APPLICATION_CREDENTIALS=/Users/ed.jeffreys/.config/gcloud/application_default_credentials.json
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 export JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home
-export CLOUDSK_PYTHON=$(which python3)
+export CLOUDSDK_PYTHON=$(which python3.11)
 
 alias top=htop
 alias vim=nvim

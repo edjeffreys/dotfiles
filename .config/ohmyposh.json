@@ -2,52 +2,53 @@
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "blocks": [
     {
+      "type": "prompt",
       "alignment": "left",
       "segments": [
         {
-          "foreground": "#ffffff",
           "properties": {
             "style": "full"
           },
           "style": "plain",
           "template": "{{ .Path }} ",
+          "foreground": "#ffffff",
           "type": "path"
         },
         {
-          "foreground": "#C2C206",
           "style": "plain",
           "template": "{{ .HEAD }} ",
+          "foreground": "#C2C206",
           "type": "git"
         },
         {
-          "foreground": "#B5B50D",
           "style": "plain",
           "template": " \uf0e7 ",
+          "foreground": "#B5B50D",
           "type": "root"
         },
         {
-          "foreground": "#C94A16",
           "style": "plain",
           "template": "x{{ reason .Code }} ",
+          "foreground": "#C94A16",
           "type": "status"
         }
       ],
-      "type": "prompt"
+      "newline": true
     },
     {
+      "type": "prompt",
       "alignment": "left",
-      "newline": true,
       "segments": [
         {
-          "foreground": "#007ACC",
           "style": "plain",
           "template": "\ue602",
+          "foreground": "#007ACC",
           "type": "text"
         }
       ],
-      "type": "prompt"
+      "newline": true
     }
   ],
-  "final_space": true,
-  "version": 2
+  "version": 3,
+  "final_space": true
 }
