@@ -1,4 +1,5 @@
 local root_dir = require("jdtls.setup").find_root({ "gradlew", ".git", "mvnw" })
+-- local project_dir = require("jdtls.setup").find_root({ ".project", ".git", "mvnw" })
 local workspace_dir = root_dir .. "/../.jdtls/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local jdtls_dir = vim.fn.globpath("/opt/homebrew/Cellar/jdtls/", "*/libexec/")
 -- local jdtls_dir = "/Users/ed.jeffreys/jdtls/1.29.0/"
@@ -7,6 +8,7 @@ return {
   root_dir = root_dir,
   settings = {
     java = {
+      full_build = false,
       autobuild = {
         enabled = false,
       },
@@ -32,6 +34,7 @@ return {
       flags = {
         allow_incremental_sync = true,
       },
+      maxConcurrentBuilds = 4,
       format = {
         enabled = true,
         settings = {

@@ -23,7 +23,7 @@ return {
           "nvim-cmp",
           "nvim-tree",
           "nvim-web-devicons",
-          "telescope",
+          -- "telescope",
           "which-key",
         },
 
